@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Catatan Bab 2</title>
+    <title>Catatan HTML Bab 2</title>
   </head>
   <body>
     <!-- 
@@ -64,9 +64,125 @@
     Normalnya urutan list diawali dengan urutan paling rendah dengan menambahkan atribut reversed pada elemen <ol>, urutan dalam sebuah list akan dibalik.
   -->
 
-    <!-- 
+    <!-- Gambar
+      <img> merupakan sebuah elemen kosong (tidak memiliki konten sehingga tidak ada closing tag).
+     - <img> memiliki 2 atribut yaitu :
+     1. src = sebagai sumber dari gambar yang ditampilkan. Atribut ini dapat bernilai url gambar atau path gambar lokal dari gambar yang digunakan.
+     2. alt = gambaran dari gambar yang ditampilkan dalam bentuk tulisan. Sehingga ketika gambar gagal ditampilkan maka akan memunculkan teks alternatif yang dapat mewakili arti dari gambar tersebut.  
+     - mengatur ukuran pada gambar
+     1. untuk menentukan lebar gambar kita gunakan atribut width
+     2. untuk menentukan tinggi tentu gunakan atribut height
+  -->
 
-    
+    <!-- Teks Terformat
+    1. Long quotations = untuk membuat sebuah kutipan atau testimonial menggunakan tag <blockquote> yang isinya terdapat paragraf, heading, ataupun list.
+       memiliki atribut cite yang berfungsi untuk menentukan sumber URL dari sebuah kutipan (Jika kutipan tersebut bersumber dari sebuah situs website).
+    2. Preformatted text = sebuah elemen yang dapat kita gunakan untuk menampilkan konten sesuai yang kita tulis pada text editor menggunakan tag <pre>.
+    3. Figure = untuk merepresentasikan konten tersendiri (self-contained content) seperti ilustrasi, diagram, foto atau bisa juga sebuah baris kode. Banyak hal yang dapat digunakan dalam elemen ini. 
+       Elemen ini digunakan untuk mengelompokkan blok konten yang dapat dipindahkan posisinya dari blok utama sebuah dokumen tanpa mempengaruhi arti dari induk dokumen. menggunakan tag <figure> dan Di dalam elemen figure kita dapat menuliskan elemen <figcaption> sebagai sebuah caption (judul).
    -->
-  </body>
+
+    <!-- Inline Formating Text 
+    1. Anchor (jangkar) merupakan elemen yang digunakan untuk membuat sebuah hyperlink ke halaman atau website lain, file, alamat email, atau URL lainnya. Untuk menggunakan elemen ini kita gunakan tag <a>...</a> bersama dengan atribut href untuk menetapkan sebuah target yang akan dituju. 
+    Atribut Khusus Pada elemen Anchor
+      a. atribut download (filename) untuk mengunduh pada URL yang ditetapkan daripada mengarahkannya
+      b. atribut href (URL) untuk menetapkan terget yang akan diarahkan/unduh ketika pengguna menekan hyperlink
+      c. atribut hreflang (language_code) untuk menetapkan bahasa dari dokumen target
+      d. atribut ping (list_of_URLs) untuk Menetapkan URL yang akan diberitahu dengan mengirimkan post request ping pada body oleh browser (berjalan di belakang layar) ketika target URL pada hyperlink ditekan. Biasanya atribut ini digunakan untuk pelacakan.
+      e. atribut reffererpolicy (no-referrer, no-referrer-when-downgrade, origin, origin-when-cross-origin, unsafe-url) Menetapkan referensi untuk dikirim pada target.
+      f. atribut rel (alternate, author, bookmark, external, help, license, next, nofollow, noreferrer, noopener, prev, search, tag) Menetapkan hubungan antara halaman yang ditampilkan dengan target.
+      g. atribut target (_blank, _parent, _self, _top) Menetapkan lokasi ketika membuka target contohnya pada sebuah tab, window atau pada tab itu sendiri.
+      h. atribut media (media_type) Menetapkan tipe media yang digunakan pada target.
+    2. Emphasized text elemen <em> untuk menunjukan bagian kata yang perlu kita tekankan. Elemen ini menunjukan stress emphasis atau konten/kata yang perlu mendapatkan penekanan atau perhatian khusus. Standarnya pada browser sebuah kata yang ditekankan akan ditampilkan dalam gaya miring pada teks nya.
+    3. Important text elemen <strong> untuk menunjukan sebuah teks yang begitu penting (strong importance), serius, ataupun mendesak. Dalam arti teks tersebut harus dapat perhatian lebih dari teks biasa lainnya. Standarnya pada browser, sebuah teks yang dibungkus dengan tag  <strong> akan ditampilkan secara tebal. Dan ketika pengguna menggunakan pembaca layar (screen reader), suara yang terdengar akan berbeda. Ini mengartikan bahwa teks tersebut penting tidak hanya sekedar tebal.
+    4. Short Quotations elemen <q> untuk menandai sebuah kutipan dalam sebuah teks. Elemen short quotations berbeda dengan <blockquote>. Elemen ini digunakan untuk kutipan pendek yang terletak di dalam baris (inline). Standarnya pada browser sebuah teks yang diberi markup <q> akan ditampilkan di dalam tanda kutip (Quotation marks).
+    5. Citation merupakan sebuah elemen yang digunakan untuk sebuah rujukan pada sebuah dokumen, contohnya sebuah buku, majalah, artikel dan lainnya.Standarnya pada browser sebuah teks yang diberi markup <cite> akan ditampilkan dengan cetak miring (italic).
+    6. Defining terms Elemen <dfn> digunakan ketika mendefinisikan sebuah istilah (term). Elemen ini harus terletak pada elemen lain yang menaunginya. Contohnya pada sebuah elemen <p> atau elemen <section>. Standar pada browser yakni sebuah teks yang diberi markup <dfn> akan ditampilkan dengan cetak miring (italic).
+    7. Subscript dan superscript Subscript <sub> dan superscript <sup> merupakan elemen yang dapat membuat teks yang ditampilkan nampak kecil, dengan posisi di bawah (sub) atau di atas (sup) dari teks biasanya. Elemen ini digunakan untuk menunjukan sebuah rumus kimia ataupun matematika.
+    8. Highlighted text Untuk menandai atau menyorot sebuah teks kita bisa menggunakan elemen <mark>. Standarnya pada browser teks yang diberi markup <mark> akan ditampilkan dengan background kuning dan teks hitam.
+    9. Line break Inline line break element atau <br> dapat digunakan untuk memberitahu browser untuk memberikan sebuah garis baru pada baris teks. Sama seperti gambar, elemen ini merupakan elemen kosong sehingga kita tidak membutuhkan sebuah tag penutup.
+   -->
+
+    <!-- Semantic HTML
+    1. Header dan Footer
+    Sebuah <header> dan <footer> utama yang muncul pada awal dan akhir di sebuah halaman <body>. 
+    > Header digunakan sebagai pengantar atau pembuka konten dalam sebuah elemen <article> atau <section> (menampilkan nama situs dan navigasi utama.). 
+    > Footer digunakan sebagai catatan kaki pada sebuah elemen <article> atau <section> (sebagai informasi hak cipta).
+    2. Main <main> digunakan untuk menampung/mewadahi konten utama (dominan) dalam <body>. Konten main dapat terdiri dari banyak section, ataupun artikel, atau konten apapun di dalam elemen main, selama termasuk konten utama yang dimiliki oleh website.
+    Karena elemen <main> merupakan inti konten pada website, jangan gunakan elemen main lebih dari satu pada berkas HTML.
+    3. Nav <nav> digunakan untuk menampung sebuah navigasi yang sifatnya penting (major), contohnya navigasi utama pada sebuah website.
+    Sebuah navigation pada dasarnya sangat berguna untuk aksesibilitas website kita. Contohnya ketika pengguna website kita menggunakan screen reader dalam mengunjungi website, pengguna akan mudah mencari bagian yang dia inginkan tanpa harus menelusuri seluruh konten website.
+    4. Articles <article> bertindak sebagai container untuk independen konten pada sebuah halaman, artinya konten utuh yang tidak terkait dengan konten lain. Bisa saja konten yang dimaksud berupa artikel blog, komentar, forum post, dan konten lainnya.
+    Elemen <article> dapat berada pada elemen <article> lainnya (nested) selama artikel tersebut berkaitan dengan induk elemen <article> yang menampungnya.
+    5. Aside aside> memiliki dua tujuan, tergantung kita menempatkannya di dalam sebuah elemen <article> atau tidak.
+      > jika di dalam maka berisikan informasi yang berhubungan dengan artikel tersebut, tetapi bukan bagian dari konten artikelnya itu sendiri (dipisahkan dari konten utama).
+      > jika di luar maka berisikan informasi yang behubungan pada keseluruhan halaman.
+    aside biasanta terletak di samping dari sebuah elemen yang menampungnya.
+    6. section Sebuah elemen yang memiliki kesamaan konten dan memiliki sebuah heading di dalamnya dapat dikelompokkan dengan menggunakan elemen <section>
+  -->
+
+    <!-- Generic Element
+    1. Div <div> elemen ini merupakan sebuah wadah (container) yang bersifat umum untuk menampung beberapa konten. Elemen ini tidak akan memberikan efek apapun pada konten atau layout sebelum menerapkan sebuah style menggunakan CSS.
+    Sebagai sebuah wadah yang murni, elemen <div> tidak merepresentasikan apapun. Elemen ini lebih sering digunakan untuk mengelompokkan sebuah konten sehingga dapat memudahkan styling dengan menggunakan atribut class atau id.
+    2. Span elemen ini memberikan manfaat yang sama seperti <div>, bedanya elemen ini digunakan sebagai phrase elements dan tidak terdapat line breaks ketika menggunakannya. Sederhananya, <span> merupakan sebuah <div> yang digunakan dalam sebuah baris teks yang dapat diwadahi oleh paragraf, list, heading atau lainnya.
+  -->
+
+    <!-- Table
+    <table> ini merepresentasikan data tabular atau informasi yang disajikan dalam sebuah tabel. Tabel sendiri disajikan dalam dua dimensi yang terdiri dari baris dan kolom (cell) yang berisikan sebuah data.
+    1. Struktur dasar tabel
+    Tabel pada HTML disusun dari tiga buah elemen, yaitu <table>, <tr> sebagai "table row", dan <td> sebagai "table data" atau <th> sebagai "Table head". Elemen <table> digunakan untuk menandakan dimulai dan diakhirinya sebuah konten tabel dan juga sebagai wadah untuk tabel itu sendiri. Kemudian, elemen <tr> digunakan untuk membuat sebuah baris baru yang di dalamnya terdapat elemen <td> atau <th> sehingga menghasilkan sebuah cell.
+    Elemen <td> yang berarti “table data” selain membuat cell elemen ini juga merupakan tempat di mana data pada tabel ditampung. Selanjutnya untuk elemen <th> atau “table header” digunakan untuk menentukan sebuah header pada kolom datanya. seluruh konten atau data dituliskan pada elemen <td> ataupun <th>. Kita bisa memberikan konten apa saja di dalamnya seperti teks, gambar, atau tabel lainnya.
+
+    2. Spanning Cell artinya menjangkau atau merentangkan sebuah ukuran sel lebih dari ukuran yang biasanya. Dengan spanning cell kita dapat membuat sebuah tabel yang lebih kompleks (menggabungkan dua atau lebih sebuah sel).
+
+    3. Column Spans Untuk merentangkan sebuah kolom (column spanning) kita bisa menggunakan atribut colspan pada elemen <td> atau <th>.
+
+    4. Row spans Untuk merentangkan sebuah baris (row spanning) kita dapat menggunakan atribut rowspan. Sama seperti column spanning, tetapi atribut ini akan merentangkan sebuah sel ke bawah.
+    
+    5. Atribut pada tabel
+      > table : menetapkan elemen tabel
+      > td : menetapkan sebuah sel dalam baris tabel.
+        - colspan="number" : Jumlah kolom yang dicakup oleh sel.
+        - rowspan="number" : jumlah baris yang dicakup oleh sel.
+        - headers="nama header" : mengasosiasikan data sel dengan header.
+      > th : Menetapkan header yang terkait dengan baris atau kolom.
+        - colspan="number" : Jumlah kolom yang dicakup oleh header.
+        - rowspan="number" : jumlah row yang dicakup oleh header.
+        - headers="nama header" : mengasosiasikan data header dengan header lain.
+        - scope="row| col| rowgroup| colgroup" : Mengasosiasikan header dengan baris, kelompok baris, kolom atau kelompok kolom.
+      > tr : menetapkan sebuah haris pada tabel
+      > caption : memberikan judul pada sebuah tabel
+      > col : menetapkan sebuah kolom
+      > colgroup : menetapkan sebuah kelompok kolom.
+      > tbody : mengidentifikasi sebuah body dalam tabel
+      > tfoot : mengidentifikasi sebuah footer dalam tabel
+      > thead : mengidentifikasi sebuah header dalam tabel
+  -->
+
+    <!-- Special Character
+  Escaping artinya adalah tidak menuliskan karakter itu sendiri, melainkan menggantinya dengan nilai numeric atau character reference pada karakternya.
+  Terdapat dua cara untuk melakukannya, yakni dengan menetapkan nilai numerik (numeric entity) atau menggunakan nama singkatan yang sudah ditetapkan untuk masing-masing karakternya (named entity). Semua referensi karakter dimulai dengan “&” dan diakhiri dengan “;”.
+  
+  Daftar karakter spesial
+      | non-breaking space | &nbsp; | &#160;
+  &   | Ampersand          | &amp;  | &#038;
+  '   | Apostrophe         | &apos; | &#039;
+  <   | kurang dari (less-than)      | &lt; | &#060;
+  >   | Lebih dari (greater-than)      | &gt; | &#062;
+  ©   | Hak cipta (copyright)      | &copy; | &#169;
+  ®   | Merek dagang terdaftar (registered trademark)      | &reg; | &#174;
+  ™   | Merek dagang (trademark)      | &trade; | &#8482;
+  £   | Pound      | &pound; | &#163;
+  ¥   | Yen      | &yen; | &#165;
+  €   | Euro     | &euro; | &#8384;
+  -   | En-dash    | &ndash; | &#8211;
+  —-   | Em-dash    | &mdash; | &#8212;
+  '   | kutip tunggal kiri    | &lsquo; | &#8216;
+  '   | kutip tunggal kanan    | &rsquo; | &#8217;
+  "   | kutip ganda kiri   | &ldquo; | &#8220;
+  "   | kutip ganda kanan   | &rdquo; | &#8221;
+  •   | Bullet   | &bull; | &#8226;
+  ...   | Horizontal ellipsis   | &hellip; | &#8230;
+
+  --></body>
 </html>

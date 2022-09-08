@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Catatan CSS Bab 1</title>
+  </head>
+  <body>
+    <!-- CSS
+    CSS bukanlah sebuah bahasa pemrograman karena di dalamnya tidak terdapat logika, tidak dapat sintaks pengondisian, tidak adanya proses iterasi, dsb. 
+    CSS hanya sebuah declarative language yang digunakan untuk mendeklarasikan suatu nilai yang nantinya digunakan untuk mengatur seperti apa sebuah elemen HTML ditampilkan pada browser.
+   -->
+
+    <!-- Keuntungan Menggunakan CSS
+    1. Dapat mengontrol dan menerapkan layout secara presisi
+    2. menghindari pekerjaan yang berulang-ulang dalam menerapkan styling
+    3. didukung banyak browser.
+  -->
+
+    <!-- Aturan Syling
+  h1 {
+    color: green;
+  }
+
+  h1 = selector 
+  color = property
+  green = value
+
+  p {
+    font-size: small;
+    font-family: sans-serif;
+  }
+
+  p = selector
+  {
+    font-size: small;              = Declaration block
+    font-family: sans-serif;       = untuk menuliskan multiple declaration dalam selector
+  }
+
+  selector = selector dipanggil melalui tipe elemennya. dan ini merupakan teknik dasar dari pemanggilan selector.
+  properti dan nilainya terdapat pada declaration/declaration block akan diterapkan pada seluruh elemen.
+
+  declarations = deklarasi terdiri dari pasangan properti dengan nilainya. dimana kita bisa menetapkan lebih dari satu deklarasi pada satu rule.
+
+  css commets = /* */
+  -->
+
+    <!-- Melampirkan styling pada dokumen html
+    1. External style sheet
+    Merupakan berkas terpisah yang di dalamnya hanya terdapat sebuah rules. berkas ini harus berekstensi .css, dan berkas ini nantinya dihubungkan pada dokumen html. Cara ini merupakan yang paling powerful dalam menerapkan styling. Karena dengan cara ini, satu berkas styling (.css) dapat digunakan oleh banyak berkas HTML.
+
+    min.css merupakan penamaan format berkas .css yang sudah di-minify atau sudah diminimalkan dengan menghilangkan white space yang tidak digunakan
+
+    2. Embedded style sheet 
+    merupakan kumpulan rules yang dituliskan dalam berkas HTML dengan menggunakan elemen <style>. Dengan begitu rules yang dituliskan hanya dapat dicakup oleh satu berkas HTML. Penulisan rules harus dituliskan dalam elemen <style> dan ditempatkan di dalam <head> dari berkas HTML.
+
+    3. Inline style 
+    merupakan styling yang diterapkan pada elemen HTML dengan menggunakan atribut style.Untuk menambahkan styling properties lainnya (multiple properties), kita tuliskan dengan menggunakan semicolon (;) sebagai pemisah antar styling properties-nya.
+
+    4. Commenting in style 
+    merupakan sebuah teks yang dijadikan sebuah komentar dimana teks tersebut tidak akan diproses oleh browser (sebagai compiler) atau lebih tepatnya diabaikan.
+  -->
+
+    <!-- CSS Conception
+    1. Inheritance 
+    artinya dapat mewarisi properti style “tertentu” pada elemen yang ada di dalamnya. Contohnya pada rules yang kita tuliskan untuk elemen <body> akan diterapkan pada seluruh elemen yang ada di dalam elemennya (body).
+    
+    2. Group Selector 
+    artinya menggabungkan selector yang berbeda sehingga dapat meminimalisir penulisan kode yang berulang. setiap selector yang digabungkan dipisah menggunakan koma (,).
+
+    3. Rule order 
+    cascading artinya “mengalir.” Demikian halnya dengan alur kerja CSS dalam membaca kode yang mengalir dari atas ke bawah. Karena itu kita harus memperhatikan urutan dalam penulisan rules, terutama saat terjadi sebuah konflik.
+  -->
+
+    <!-- Rangkuman
+  Rule : Sebuah aturan styling yang harus diterapkan pada elemen HTML. Dalam sebuah rule terdapat selector dan deklarasi properti styling.
+  Selector : Sebuah bagian dari rule, yang mengidentifikasi target elemen untuk menetapkan sebuah rule.
+  Declaration : Sebuah bagian dari rule, yang terdiri dari pasangan properti dan nilainya.
+  External Style Sheet : Berkas terpisah yang di dalamnya hanya terdapat sebuah rules yang akan digunakan pada website.
+  Embedded Style Sheet : Kumpulan rules yang dituliskan dalam berkas HTML dengan menggunakan elemen <style>.
+  Inline Style : styling yang diterapkan pada elemen HTML dengan menggunakan atribut style.
+-->
+  </body>
+</html>

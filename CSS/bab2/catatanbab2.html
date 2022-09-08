@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Catatab CSS bab 2</title>
+  </head>
+  <body>
+    <!-- Selector Basic
+      1. Type Selector, menggunakan nama elemen sebagai target untuk diterapkannya rule. Dengan kata lain, ketika menggunakan selector ini tentu rule akan diterapkan pada seluruh elemen target yang pada dokumen HTML.
+
+      2. Class Selector, menetapkan target elemen berdasarkan nilai dari atribut class yang diterapkan elemennya. Untuk penulisan selector, awali dengan tanda titik (.) kemudian lanjutkan dengan nama class-nya.
+      Class bersifat shareable, sehingga dapat diterapkan pada banyak elemen dengan tipe elemen yang berbeda-beda. tidak hanya itu, Tidak hanya itu, sebuah elemen juga mungkin memiliki banyak nilai class, sehingga kita dapat menerapkan lebih dari satu rule atau gabungan rule pada elemen target. Untuk menggunakannya, pada atribut class kita cukup tuliskan nama kelasnya dan pisahkan tiap nilai kelasnya dengan spasi. kita juga bisa menargetkan elemen secara spesifik yang memiliki sebuah class dengan cara tuliskan nama elemen target diikuti dengan titik (.) kemudian nama kelasnya.
+
+      3. ID Selector, menetapkan target elemen berdasarkan nilai dari atribut id yang diterapkan pada elemennya. Sama seperti class, atribut id dapat diterapkan pada seluruh elemen HTML, dan kebanyakan atribut ini digunakan untuk memberikan sebuah arti pada generic element seperti <div> dan <span>. Namun atribut id ini tidak bersifat shareable, yang artinya nilai id ini harus unik dan digunakan pada satu elemen saja. Untuk menetapkan selector dengan menggunakan id, kita gunakan tanda octothorpe (#) atau lebih familiar disebut dengan hash.id ini bersifat unik. Jika kita ingin menerapkan sebuah rule pada banyak elemen, sebaiknya gunakan atribut class, bukan dengan id.
+
+      4. Attribute Selector, merupakan cara menetapkan target elemen berdasarkan sebuah atribut yang digunakan atau bahkan bisa lebih spesifik dengan nilainya.
+      Kondisi yang dapat diterapkan pada atribut selector :
+        a. [attr] = menargetkan elemen yang menerapkan atribut attr.
+        b. [attr=valuer] = menargetkan elemen yang menerapkan atribut attr dengan nilai value.
+        c. [attr~=value] = menargetkan elemen yang menerapkan atribut attr dengan salah satu nilainya adalah value
+        d. [attr^=value] = menargetkan elemen yang menerapkan atribut attr yang nilainya diawali dengan nilai value.
+        d. [attr$=value] = menargetkan elemen yang menerapkan atribut attr yang nilainya diakhiri dengan value.
+        d. [attr*=value] = menargetkan elemen yang menerapkan atribut attr yang nilainya mengandung value.
+
+      5. Universal Selector, digunakan untuk diterapkan pada seluruh elemen. Tetapi selector ini juga bisa secara spesifik menargetkan sebuah elemen dengan menggabungkan bersama selector yang lainnya.
+    -->
+
+    <!-- Combinators
+      1. Adjacent Sibling Selector (+), menggabungkan dua buah basic selector dengan menggunakan tanda + di antara keduanya. Adjacent Sibling Selector terdiri dari dua buah target elemen, namun hanya elemen kedua yang menerapkan rule selama elemen tersebut dituliskan langsung setelah elemen pertama pada berkas HTML. Selain itu kedua elemen tersebut harus berada di dalam induk elemen yang sama
+
+      2. General Sibling Selector (~), Mirip seperti Adjacent Sibling Selector namun rules akan diterapkan pada seluruh elemen kedua yang berada setelah elemen pertama. Dengan catatan, induknya sama, walaupun posisi dari elemen kedua tidak berada tepat setelahnya. General Sibling Selector menggunakan tanda ~ untuk menetapkan elemenya.
+
+      3. Child Selector (>), menggabungkan dua buah basic selector dengan menggunakan tanda greater than (>) di antara basic selector-nya. rule akan diterapkan pada seluruh elemen paragraf yang berada di dalam elemen div secara langsung. Dalam arti lain, elemen paragraf merupakan anak dari elemen div secara langsung.
+
+      4. Descendant Selector (space), Descendant Selector mirip seperti child selector namun hierarkinya lebih luas, karena rule akan diterapkan pada seluruh elemen yang menjadi turunannya walaupun secara tidak langsung. Basic selector pertama yang dituliskan pada selector ini menjadi induknya dan basic selector yang kedua merupakan elemen yang akan menerapkan rule. Selector ini menggunakan spasi dalam menggabungkan dua basic selector.
+    -->
+
+    <!-- Pseudo Selector
+      Selector ini menargetkan elemen pada bagian yang “tidak terlihat” seperti sifat pada elemen, sehingga untuk menetapkannya, kita tidak bisa menggunakan selector biasa.
+        1. Pseudo-class Selector, Merupakan sebuah class "semu" yang sebenarnya ada pada tiap elemen HTML. dengan menggunakan selector ini kita dapat memilih elemen berdasarkan class yang tidak nampak pada dokumen. Kita bisa menetapkan rule hanya ketika sebuah tautan telah dikunjungi (:visited) atau ketika sebuah elemen diarahkan dengan kursor (:hover) lebih lengkapnya  https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes. Untuk menggunakan pseudo-class kita gunakan tanda titik dua (:) pada basic selector kemudian diikuti dengan pseudo-class nya. 
+
+        2. Pseudo-elemen Selector, merupakan sebuah elemen “semu” yang sebenarnya ada tetapi tidak tampak secara tertulis pada berkas HTML. Selector ini biasa digunakan ketika kita ingin menambahkan sebuah konten tepat sebelum dan setelah sebuah elemen paragraf. Alhasil kita tidak perlu menuliskan struktur elemen tersebut pada berkas HTML. Cukup manfaatkan pseudo-elemen ::before dan ::after kemudian tuliskan konten tersebut cukup pada CSS. lebih lengkapnya https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements. Untuk menggunakan pseudo-elemen kita gunakan dua buah tanda titik dua (::) kemudian diikuti dengan pseudo-elemen nya. Sebenarnya kita bisa menggunakan satu buah tanda tanda titik dua (:) namun kita perlu membedakannya dengan pseudo-class. Karena itulah baiknya ketika menggunakan pseudo-elemen, gunakanlah dua buah titik dua (::).
+    -->
+
+    <!-- Formating Text (Text and Font Styling)
+      1. Font Styling 
+        a. font-family : Menetapkan jenis font yang akan diterapkan pada target.
+        Contoh : kita mengubah standar font yang digunakan browser dengan font ‘sans-serif’. Sebenarnya untuk nilai dari properti ini dapat lebih dari satu (dikenal sebagai font stack). Tujuannya adalah sebagai fallback jika terjadi kegagalan dalam menggunakan font yang kita gunakan. 
+        p { font-family: Arial, Verdana, sans-serif}
+        font-family = Property name
+        Arial = value 1
+        Verdana = value 2
+        sans-serif = value 3
+          - Seluruh nilai font yang bukan merupakan generic font families harus dituliskan secara kapital. Contohnya “Arial” bukan dituliskan “arial”.
+          - Gunakan tanda koma (,) untuk memisahkan antar nilai font yang digunakan.
+          - Selalu tanda kutip (“) untuk membungkus nilai font yang memiliki spasi pada namanya (Contohnya “Open Sans”).
+        mengapa kita perlu memberikan lebih dari satu nilai pada font-family? karena tidak semua browser mendukung semua jenis font. memberikan lebih dari satu nilai font dapat menawarkan alternatif tampilan font pada browser. terutama jika font utama yang diterapkan tidak didukung oleh browser yang digunakan. prioritas font mulai dari jenis font yang pertama dituliskan jika font pertama didukung oleh browser maka browser akan menggunakannya. namun jika tidak maka browser akan memeriksa nilai font yang kedua dan menggunakannya (jika didukung), demikian dan seterusnya
+        
+        pastikan untuk menggunakan generic font families pada akhir nilai properti font-family, karena nilai ini dipastikan didukung oleh seluruh browser saat ini.
+          - serif: Times new roman merupakan salah satu jenis serif font.
+          - sans-serif : "Open Sans", "Fira Sans" dan lainnya
+          - monospace : Consolas merupakan salah satu jenisnya
+          - cursive : jenis font yang tampak seperti handwriting atau hasil tulisan tangan
+          - fantasy : jenis font yang merepresentasikan karakteristik yang menyenangkan.
+          - system-ui : jika menerapkan nilai ini maka font yang diterapkan akan sama seperti font yang digunakan pada sistem operasi kita.
+          - math : jenis font yang digunakan untuk penulisan rumus-rumus matematika.
+          - emoji : jenis font yang digunakan untuk menampilkan emoji.
+          - fangsong : jenis font yang menampilkan gaya penulisan Chinese.
+
+          Dalam memilih jenis font terdapat istilah yang dinamakan web safe font. Web safe font adalah jenis font yang umumnya sudah pasti tersedia di sebagian besar komputer. Sehingga dapat dipastikan bahwa website akan terlihat sebagaimana mestinya pada browser. Berikut merupakan beberapa contoh font yang masuk ke kategori ini.
+          - Arial (sans-serif)
+          - Verdana (sans-serif)
+          - Helvetica (sans-serif)
+          - Tahoma (sans-serif)
+          - Trebuchet MS (sans-serif)
+          - Times New Roman (serif)
+          - Georgia (serif)
+          - Garamond (serif)
+          - Courier New (monospace)
+          - Brush Script MT (cursive)
+
+        b. font-size : Menentukan ukuran pada teks.
+        Satuan dalam menetapkan ukuran font terdapat dua jenis. Yang pertama relative, yakni satuan yang nilainya tergantung pada sesuatu hal, contohnya ukuran dari viewport, induk elemen ataupun ukuran teks standar. Dan yang kedua adalah absolute, yakni satuan yang nilainya telah ditentukan atau digunakan dalam dunia nyata.
+          1. Relative unit
+            - Satuan "EM" Relative to Font Size berfungsi sebagai Satuan relatif terhadap ukuran font yang sedang digunakan pada elemen (contohnya, 2em berarti 2 kali lebih besar dari ukuran font seharusnya).
+            - Satuan "EX" Relative to Font height berfungsi sebagai Satuan relatif terhadap tinggi font saat ini, satuan ini sangat jarang sekali digunakan.
+            - Satuan "REM" Relative to font size berfungsi Mirip seperti em, tetapi rem merupakan satuan relatif terhadap ukuran font dari root element.
+            - satuan "CH" relative to font width berfungsi sebagai atuan relatif terhadap lebar dari karakter “0” nol.
+            - satua "VW" relative to viewport width berfungsi sebagai Satuan relatif terhadap 1% lebar viewport. Contoh 1vw = 1% dari lebar viewport. Satuan ini tidak didukung pada browser IE8 ke bawah.
+            - satuan "VH" relative to viewport height berfungsi sebagai Satuan relatif terhadap 1% tinggi viewport. Contoh 1vh = 1% dari tinggi viewport. Satuan ini tidak didukung pada browser IE8 ke bawah.
+
+          2. Absulote unit
+            - Satuan "PX" berfungsi Menetapkan nilai font berdasarkan ukuran pixel
+            - Satuan "PT" berfungsi Menetapkan nilai font berdasarkan point (1/72 inch)
+            - Satuan "PC" berfungsi Menetapkan nilai font berdasarkan picas (1 pica = 12 ponit)
+            - Satuan "MM" berfungsi Menetapkan nilai font berdasarkan millimeters
+            - Satuan "CM" berfungsi Menetapkan nilai font berdasarkan centimeters
+            - Satuan "IN" berfungsi Menetapkan nilai font berdasarkan inches
+          Selain dengan menetapkan nilai dan satuan secara langsung, untuk mengatur ukuran font kita juga bisa gunakan nilai persentase. Dan yang terakhir kita juga bisa menentukan ukuran font dengan menuliskan kata kunci secara spesifik yang tersedia pada CSS. Kata kunci tersebut adalah: xx-small, x-small, small, medium, large, x-large, dan xx-large.
+
+        c. font-weight : Menentukan ketebalan pada teks. 
+        Nilai dari properti ini dapat ditentukan dengan menggunakan numeric values (100 sampai 900) atau dengan menggunakan descriptive terms (normal, bold, bolder, dan lighter). 
+
+        d. font-style : Menetapkan styling yang diterapkan pada teks.
+        Properti ini digunakan untuk menentukan postur dari teks yang ditampilkan, apakah bentuknya vertikal (normal) atau miring (italic dan oblique).Italic dan oblique keduanya menampilkan teks yang miring. Perbedaanya adalah italic menerapkan tipe miring (italic font version) dari suatu font sedangkan oblique adalah font normal yang hanya dibuat miring.
+
+        e. font-variant : Menentukan teks untuk menggunakan gaya small caps (huruf kapital kecil.
+        Fitur ini dapat membuat teks menjadi kapital tetapi dituliskan secara kecil dan merapat.
+
+        f. font : Shorthand dari properti font yang ada.
+        Nilai dari properti font merupakan nilai dari seluruh properti dari font. tiap nilai dipisahkan menggunakan spasi. Nilai dari properti font merupakan nilai dari seluruh properti dari font. 
+
+        target {font: style weight variant size font-family}
+
+        Walaupun begitu kita bisa tidak menuliskan seluruh nilai properti yang ada, tetapi nilai dari properti font-size dan font-family wajib ada ketika menggunakan properti ini.
+    -->
+    <!-- Text Styling
+      1. Line Height, digunakan untuk mengatur jarak minimal dari garis dasar ke garis dasar dalam menampilkannya teks pada halaman. properti ini mirip dengan fungsi line and paragraph spacing.
+
+      2. Text indent, digunakan untuk membuat jarak/lekuk diawal paragraf dengan menggunakan nilai px, em dan in atau bisa menggunakan nilai persentase(%). nilai persentase dihitung berdasarkan lebar dari induk elemen.
+
+      3. Text Alignment, digunakan untuk perataan teks. biasanya properti ini bernilai left atau kiri namun bisa kita ubah valuenya sesuai dengan keinginan kitaa 
+        - teks-align: left = membuat perataan teks pada ujung kiri
+        - teks-align: right = membuat perataan teks pada ujung kanan
+        - teks-align: center = membuat perataan teks secara menengah
+        - teks-align: justify = membuat perataan teks yang setara pada ujung kiri dan kanannya
+
+      4. Text decoratioan, digunakan ketika kita ingin membuat garis bawah atau underline pada teks. tapi tak hanya itu, ada beberapa nilai lain yang dapat kita gunakan untuk properti ini.
+        - text-decoration: underline = memberikan garis bawah (underline) pada teks
+        - text-decoration: overline = memberikan garis atas (overline) pada teks
+        - text-decoration: line-through = memberikan efek tulisan dicoret (strikethrough)
+        - text-decoration: none = menghilangkan dekorasi teks yang ada pada elemen
+      Dengan menggunakan text-decoration, kita dapat menghilangkan efek underline pada link yang ditampilkan dengan memberikan nilai text-decoration: none pada elemen <a>.
+      
+      5. Teks Transform, digunakan untuk mengubah kapitalisasi tanpa harus menuliskan kembali teksnya.
+        - text-transform: none = teks yang ditampilkan sama seperti yang dituliskan
+        - text-transform: capitalize = membuat huruf pertama besar pada tiap katanya
+        - text-transform: lowercase = membuat seluruh teks menggunakan huruf kecil
+        - text-transform: uppercase = membuat seluruh teks menggunakan huruf besar
+
+      6. word and latter spacing, digunakan untuk mengatur spasi atau jarak pada teks. Properti letter-spacing digunakan untuk mengatur jarak antar huruf, sedangkan word-spacing digunakan untuk mengatur jarak antar kata.
+
+      7. text shadow, digunakan untuk memberikan bayangan pada teks. Nilai dari properti ini cukup rumit karena membutuhkan tiga buah nilai dan satu buah nilai warna sehingga membutuhkan empat nilai dalam satu properti untuk menentukan bayangannya.
+        - Nilai pertama : menunjukkan seberapa jauh ke kiri atau kanan (horizontal) bayangan harus ditampakkan.
+        - Nilai kedua : menunjukkan jarak ke atas atau ke bawah (vertical) bayangan harus ditampakkan. 
+        - Nilai Ketiga (opsional) : menentukan tingkat keburaman yang harus diterapkan pada bayangan.
+        - Nilai Keempat :  menentukan warna yang digunakan pada bayangan.
+     -->
+
+    <!-- Color
+      1. Menetapkan nilai warna
+        a. numeric value, digunakan untuk menentukan warna yang kita inginkan dengan tepat menggunakan format angka rgb, hex dan hsl (hue, saturation, light).
+
+        b. predefined color name, digunakan untuk menentukan warna melalui sebuah kata seperti blue, yellow, red dan lainnya.
+        
+        c. opacity, digunakan untuk menspesifikasikan nilai transparan pada elemen HTML. nilai dari properti opacity merupakan angka desimal antara 0.0 hingga 1.0, jika kita menetapkan nilainya 0.5 itu berarti 50% transparan. Selain pada elemen, menetapkan opacity juga dapat kita lakukan pada warna. Untuk melakukannya bisa menggunakan format rgba, dan hsla, di mana format ini merupakan format rgb ditambahkan nilai alpha. Selain itu, dapat juga dilakukan menggunakan format hex dengan memberikan dua digit dibelakang kode hexadecimal.
+
+      2. Text color (Foreground Color)
+      - Nilai dari properti color dapat berupa predefined color name atau sebuah numeric value dengan menggunakan RGB, RGBA, HEX, HSL, ataupun HSLA. 
+      - Terdapat dua cara dalam penetapan nilai color menggunakan format hexadecimal, yaitu dengan menyebutkan digit hexadecimal secara lengkap (6 digit) dan menyebutkan tiga digit (paling sedikit) hexadecimal. Pada contoh diatas, nilai #666666 dan #666 memiliki hasil yang sama. Artinya setiap digit dari #666 akan melakukan duplikasi dari digit pertama ke digit kedua, digit ketiga ke digit keempat dan digit kelima ke digit keenam, sesuai urutan pendefinisiannya.
+      - Properti color dapat diaplikasikan ke seluruh elemen yang ada pada HTML dan nilainya dapat diturunkan pada elemen turunannya.
+
+      3. background color
+      - Properti background-color dapat mengatur warna latar belakang dari kotak tersebut.
+      - Sama seperti text color, kita dapat menspesifikasikan warna yang dipilih dengan numeric values atau dengan predefined color name. Properti background-color akan bernilai transparan jika tidak kita tetapkan (default).
+    -->
+
+    <!-- Box model
+    merupakan salah satu konsep dari CSS. Setiap elemen yang dibuat pada HTML akan menciptakan sebuah kotak untuk menampung kontennya.  Layaknya bentuk kotak pada umumnya, pasti terdapat nilai seperti width (lebar), height (tinggi), padding (tebal lapisan), border (garis tepi), dan juga jarak. Pada CSS nilai - nilai tersebut dapat kita atur.
+    -->
+
+    <!-- Box element
+    1. Content : Merupakan sebuah inti dari kotak elemen yang merupakan konten dari elemen itu sendiri
+
+    2. Padding : Area yang menjadi jarak antara border elemen dengan konten yang ditampilkan. Ketika kita menerapkan background-color maka warna tersebut diterapkan pada area padding. Penerapan ukuran padding pada elemen merupakan opsional.
+
+    3. Border : Merupakan garis terluar yang mengelilingi konten dan padding. Penerapan border pada elemen merupakan opsional.
+
+    4. Margin : Berbeda dengan padding, margin merupakan area jarak diluar dari border. Pada ilustrasi diatas, margin ditunjukkan dengan warna merah muda namun pada aslinya margin selalu transparan dan penerapan margin pada elemen merupakan opsional.
+
+    5. Edge of element : merupakan batas dari suatu elemen. Di dalamnya terdapat margin, border, padding dan konten. Pada ilustrasi di atas, batas elemen ditunjukkan dengan garis putus tetapi pada aslinya batas elemen selalu tidak terlihat.
+    -->
+
+    <!-- Box Dimensions
+      Cara yang paling banyak digunakan dalam menentukan dimensi kotak adalah dengan menggunakan pixel, persentase, atau ems. Secara tradisional, pixel merupakan cara yang paling populer karena kita dapat merancang dan mengontrol ukuran secara akurat. Berbeda ketika kita menggunakan persentase, ukuran kotak akan relative atau menyesuaikan dari ukuran lain, seperti ukuran jendela browser atau ukuran induk yang menaunginya. Sedangkan ketika menggunakan ems, nilai dimensi kotak akan menyesuaikan berdasarkan ukuran teks yang ditampilkan pada konten elemen tersebut. 
+    -->
+
+    <!-- Limiting Dimension
+      1. min-width : merupakan properti yang digunakan untuk menetapkan nilai lebar minimal yang harus dimiliki elemen.
+      2. max-width : merupakan properti yang digunakan untuk menetapkan nilai lebar maksimal yang harus dimiliki elemen.
+      Keduanya merupakan properti yang sangat membantu untuk memastikan konten halaman dapat terbaca oleh pengguna (terutama ketika pengguna menggunakan ponsel)
+     -->
+
+    <!-- Overflowing content 
+    Dimensi box yang dihasilkan elemen selalu cukup untuk menampung konten tetapi hal ini tidak berlaku jika kita tetapkan secara manual panjang dan lebarnya. Tak jarang terjadi overflow ketika kita menerapkan ukuran pada elemen tetapi konten di dalamnya begitu banyak.
+
+    untuk menangani kasus overflow menggunakan properti : 
+      1. visible : Merupakan nilai default pada properti ini. Konten yang tidak tertampung (overflow) akan tetap ditampilkan seperti pada standarnya.
+      2. hidden : Jika terjadi overflow, maka konten yang tidak tertampung akan disembunyikan.
+      3. scroll : Memunculkan scroll bar pada pinggir elemen, sehingga konten yang tidak tertampung akan ditampilkan dengan scroll bar. Jika menggunakan nilai ini, scroll bar akan tetap muncul walaupun konten tidak terjadi overflow.
+      4. auto : Sama seperti scroll, bedanya jika tidak terjadi overflow, maka nilai visible yang akan diterapkan.
+    -->
+
+    <!-- Box Sizing
+    Dengan menggunakan properti box-sizing kita dapat menentukannya berdasarkan border box, di mana ukuran elemen sudah termasuk content, padding dan border. Dengan metode ini, hasil elemen yang ditampilkan (termasuk padding dan border) akan memiliki dimensi yang sama persis seperti yang kita tentukan.
+    -->
+
+    <!-- Border
+    merupakan sebuah garis yang mengelilingi area konten dan padding (opsional). Kita bisa mengatur tipe, ketebalan, serta warna garis yang ditampilkan sesuai dengan yang kita inginkan. Kita juga bisa mengatur dalam menampilkan sebagian atau keseluruhan garis pada elemen.
+
+    1. Border Width, digunakan untuk mengatur ketebalan dari border. Nilai dari properti ini dapat berupa pixel atau menggunakan predefined names value seperti thin, medium, dan thick. Kita tidak bisa menggunakan nilai persentase (%) pada properti ini.
+    Properti border-width dapat ditentukan dengan menggunakan satu, dua, tiga, atau empat nilai. Berikut penjelasannya: 
+      - Ketika satu nilai ditentukan, maka nilai berlaku untuk empat sisi.
+      - Ketika dua nilai ditentukan, nilai pertama berlaku untuk sisi atas dan bawah, nilai kedua untuk sisi kiri dan kanan.
+      - Ketika tiga nilai ditentukan, nilai pertama berlaku untuk sisi atas, nilai yang kedua untuk sisi kiri dan kanan, nilai ketiga untuk sisi bawah.
+      - Ketika empat nilai ditentukan, nilai pertama berlaku untuk sisi atas, nilai yang kedua untuk sisi kanan, nilai yang ketiga untuk sisi bawah, dan nilai yang keempat untuk sisi kiri. Urutan tersebut berdasarkan arah jarum jam (clockwise).
+
+    2. Border Style, digunakan untuk menetapkan tipe border.
+      a. Solid = tipe garis padat (tidak terputus-putus)
+      b. dotted = Garis yang dibentuk dari serangkaian titik-titik (jika ketebalan garis 2px, maka titik-titik akan berukuran 2px dan memiliki jarak 2px antar titiknya).
+      c. dashed = Garis yang dibentuk dari serangkaian garis pendek.
+      d. double = garis yang dibentuk dari dua buah garis padat
+      e. groove = tipe garis yang berbentuk seperti frame
+      f. hidden = digunakan untuk menyembunyikan garis pada elemen.
+      Kita juga bisa menetapkan tipe garis secara individual pada sisi elemen dengan menggunakan empat properti terpisah.
+      - border-top-style
+      - border-right-style
+      - border-bottom-style
+      - border-left-style
+
+    3. Border color, digunakan untuk menentukan warna pada garis dengan menggunakan nilai RGB, Hex, atau nama warna pada CSS. Sama seperti properti border yang lain, kita dapat menentukan warna pada individual sisi pada elemen dengan menggunakan properti yang terpisah.
+
+    4. shorthand, digunakan untuk membuat border dengan satu properti saja. Properti border memiliki tiga buah nilai yang digunakan untuk menentukan ketebalan, tipe dan warna pada border.
+
+    div { border: width style color}
+
+    Perlu kita perhatikan bahwa penulisan urutan harus benar. Nilai pertama digunakan untuk ketebalan, yang kedua untuk tipe, dan yang ketiga untuk warna garis.
+    -->
+
+    <!-- Padding
+      - merupakan jarak antara area konten dan border. Padding banyak diterapkan pada elemen jika elemen tersebut menerapkan warna latar atau pun border. Padding memberikan sedikit ruang sehingga konten di dalam elemen dapat lebih nyaman untuk ditampilkan.
+      - Pixel merupakan satuan yang sering digunakan dalam menetapkan nilai properti ini (meskipun kita bisa juga menggunakan persentase atau ems). Jika menetapkan menggunakan persentase, maka nilai akan menjadi relatif pada elemen induk atau jendela browser (jika tidak memiliki induk elemen).
+    -->
+
+    <!-- Margin
+      - merupakan ruang atau jarak pada sebuah elemen. Namun jarak tersebut terletak di luar dari konten dan border elemen. Margin digunakan untuk menjaga elemen agar tidak bertabrakan satu sama lain atau dari tepi jendela browser.
+      - Margin ini bersifat collapsed, yang artinya dapat menumpuk jika terdapat dua margin yang saling bertumpukan. Jika terjadi pertumpukan margin, maka nilai yang paling besar yang akan diterapkan.
+    -->
+
+    <!-- Centering content
+      berfungsi sebagai meletakkan sebuah kotak tepat pada tengah sebuah halaman atau di dalam induknya. dengan cara mengtur margin kanan dan kiri dengan nilai auto. Setelah kita menentukan lebar kotak dan mengatur margin kiri dan kanan menjadi auto, maka secara otomatis browser akan memberi jarak yang sama di setiap sisi horizontal kotak, sehingga membuat kotak berada di tengah halaman. 
+    -->
+
+    <!-- Display Roles
+      a. inline element :
+        1. Elemen HTML yang secara default tidak menambahkan baris baru ketika dibuat.
+        2. Nilai lebar dan tinggi elemen inline sebesar konten di dalamnya, dan tidak dapat diubah.
+        3. Margin dan padding hanya mempengaruhi elemen secara horizontal, tidak vertikal.
+      b. block element :
+        1. Elemen HTML secara default menambahkan baris baru ketika dibuat.
+        2. Jika tidak diatur lebarnya, lebar dari elemen block akan memenuhi lebar dari browser atau elemen yang menaunginya.
+        3. Kita dapat mengatur dimensi dari elemen block.
+        4. Di dalam elemen block, kita dapat menyimpan tag elemen HTML lainnya.
+      Dengan menggunakan properti display, kita dapat mengubah sebuah elemen inline menjadi block, begitupun sebaliknya. Dalam hal ini, properti ini juga dapat digunakan untuk menyembunyikan elemen yang ditampilkan.
+      nilai dari properti ini dapat berupa :
+      - inline : digunakan untuk mengubah elemen block berperilaku seperti elemen inline.
+      - block : digunakan untuk mengubah elemen inline berperilaku seperti elemen block.
+      - inline-block : membuat elemen block tidak menambahkan baris baru ketika dibuat, namun tetap mempertahankan sifat lain dari elemen block.
+      - none : digunakan untuk menyembunyikan elemen dari halaman.
+      Properti ini banyak sekali digunakan dalam kasus pembuatan navigasi. Biasanya navigasi dibuat menggunakan elemen list yang memiliki sifat block, sehingga item list selalu ditampilkan dalam baris baru. Dengan menggunakan properti display, kita dapat mengubah perilaku elemen list tersebut dengan menerapkan inline, sehingga item list dapat ditampilkan secara horizontal.
+    -->
+
+    <!-- Box Shadow
+      Nilai dan cara kerja dari properti box-shadow mirip seperti text-shadow, yaitu nilainya menentukan jarak vertikal dan horizontal, tingkat keburaman, dan warna pada bayangan. Pada box shadow, kita juga dapat menentukan tingkat sebaran (spread) bayangan. Semakin besar  nilai, bayangan yang nampak akan semakin luas 
+      
+      box-shadow: 6px 6px 5px 10px #666666;
+
+      Berikut penjelasan tiap-tiap nilai dari propertinya:
+      - Nilai pertama : menunjukkan seberapa jauh ke kiri atau kanan (horizontal) bayangan harus ditampakkan.
+      - Nilai kedua : menunjukkan jarak ke atas atau ke bawah (vertical) bayangan harus ditampakkan. 
+      - Nilai Ketiga (opsional) : menentukan tingkat keburaman yang harus diterapkan pada bayangan.
+      - Nilai Keempat (opsional) : menentukan tingkat sebaran (spread) bayangan. Semakin besar nilai yang ditentukan, bayangan yang nampak pun semakin luas.
+      - Nilai Kelima : menentukan warna yang digunakan pada bayangan.
+    -->
+
+    <!-- Rounded corner
+      Digunakan untuk membuat rounded corner atau sudut bundar pada box dengan menggunakan properti border-radius. Nilai dari properti ini merupakan tingkat lengkungan border dalam pixel.
+      kita bisa menetapkan nilai pada individu siku kotak dengan menggunakan properti terpisah
+      - border-top-right-radius
+      - border-bottom-right-radius
+      - border-bottom-left-radius
+      - border-top-left-radius
+      atau dapat juga menggunakan shorthand sehingga dapat menetapkan keempat nilainnnya dalam satu.
+    -->
+
+    <!-- Positioning
+      a. Normal Flow / Static Flow : Merupakan default behaviour yang dimiliki elemen, di mana setiap elemen block akan ditampilkan dalam baris baru ketika dibuat. Sehingga setiap elemen block selalu muncul di bawah dari elemen block sebelumnya. Bahkan jika masih terdapat ruang kosong pada samping elemennya, mereka tidak akan nampak bersebelahan.
+      
+      b. Relative Positioning : Membuat elemen bisa berpindah posisi ke atas, kanan, bawah, maupun kiri dari posisi semula atau posisi seharusnya elemen tersebut berada. Perpindahan posisi ini tidak akan berpengaruh terhadap posisi elemen di sekitarnya karena ketika menggunakan relative positioning, elemen tersebut akan dipindahkan dari normal flow.
+      
+      c. Absolute Positioning : Sama seperti relative, elemen akan dipindahkan keluar dari normal flow sehingga kita dapat memindahkan posisi elemen ke atas, kanan, bawah, maupun kiri secara leluasa tanpa mengganggu elemen di sekitarnya. Namun posisinya relatif pada jendela browser dan induk elemen selama induk elemen juga berada di luar dari normal flow.
+      
+      d. Fixed Positioning : Merupakan absolute position namun posisinya selalu relatif pada jendela browser. Bahkan ketika pengguna scrolling pun, posisinya di layar akan tetap tak berubah. 
+    -->
+
+    <!-- Floating
+      a. pengertian float
+      Sederhananya properti float dapat membuat elemen berada pada sebelah kanan atau kiri. Saat diterapkan pada elemen inline, properti float juga memungkinkan elemen di sekitarnya mengelilingi elemen tersebut (wrap). selain dalam membuat text wrapping float merupakan salah satu teknik dalam membuat layout website. Teknik ini masih banyak digunakan oleh developer karena sangat mudah dipahami dan tergolong mudah untuk multiple column.
+
+      b. Permasalahan penerapan float
+        1. Clear, clear dibuat untuk menghilangkan sifat float dengan demikian elemen yang menerapkan properti float akan kembali "dianggap ada". Namun untuk menerapkan properti ini kita perlu membuat sebuah elemen kosong (biasanya menggunakan div tanpa konten) yang menerapkan properti clear. Nilai dari properti clear merupakan nilai yang digunakan pada properti float karena properti clear akan menghapus sifat float sesuai dengan nilai yang ditetapkan. selain nilai left and right Terdapat satu nilai lagi yang dapat menghilangkan kedua sifat float tersebut, yakni nilai both. Gunakanlah nilai tersebut jika kita ingin sepenuhnya menghilangkan sifat float pada elemen.
+        2. overflow: auto;, Untuk menerapkannya sangatlah simpel. Cukup tambahkan properti overflow dengan nilai auto pada container.
+    -->
+
+    <!-- Memperbaiki CSS 
+    Salah satu cara yang mudah dan cepat dilakukan adalah dengan menggunakan tools untuk otomatis mencari kesalahan pada penulisan.
+    -->
+
+    <!-- Mencari Kesalahan CSS
+      1. https://jigsaw.w3.org/css-validator/
+      2. https://codebeautify.org/cssvalidate
+      3. http://csslint.net/
+    -->
+  </body>
+</html>

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Catatan JavaScript Bab 1</title>
+  </head>
+  <body>
+    <!-- Javascript
+    - JavaScript merupakan bahasa pemrograman client-side sehingga seluruh prosesnya berjalan pada sisi pengguna bukan server. JavaScript diperlukan pada pengembangan website ketika kita membutuhkan suatu interaksi dari pengguna. Sesungguhnya website hanya menampilkan konten yang statis jika hanya menggunakan HTML dan CSS.
+    
+    - Karena diolah pada sisi client, JavaScript sangat bergantung pada pengaturan dan kemampuan browser ketika melakukan sebuah proses (compiling atau rendering pada DOM). Bahkan pengguna dapat sepenuhnya tidak mengizinkan JavaScript berjalan pada browser dengan menonaktifkan dukungan JavaScript pada browser.
+    
+    - Meskipun memiliki nama JavaScript bahasa pemrograman ini sama sekali tidak ada hubungannya dengan bahasa pemrograman Java. Sebenarnya pada tahun 1995 Netscape melahirkan bahasa pemrograman ini dengan nama “LiveScript”, namun pada saat itu bahasa pemrograman Java sedang populer. Untuk memanfaatkan kepopulerannya, namanya pun diubah menjadi “JavaScript” dan benar bahasa pemrograman ini pun akhirnya memiliki popularitas yang tidak kalah dari Java.
+    
+    - Setelah diadopsi di luar Netscape, JavaScript distandarisasi oleh European Computer Manufacturer’s Association (ECMA) itulah sebabnya terkadang ada yang menyebutnya dengan ECMAScript.
+    -->
+
+    <!-- Menuliskan syntax javascript
+    a. Atribut HTML 
+    Untuk menuliskan JavaScript menggunakan atribut, kita bisa menerapkannya pada atribut event seperti “onclick”, sehingga JavaScript akan dieksekusi ketika elemen tersebut ditekan oleh kursor.
+
+    b. Embedded script
+    JavaScript juga dapat dituliskan dengan menanamnya (embedding) pada berkas HTML dengan menggunakan elemen <script>. Elemen <script> dapat diletakan di dalam elemen <head> atau <body>. Akan tetapi jika kita menerapkan banyak script pada elemen <head> proses memuat halaman akan menjadi lambat, karena HTML akan membaca kode dari atas ke bawah.
+
+    c. external script
+    Keuntungan menggunakan metode ini adalah script dapat diterapkan pada berbagai berkas HTML tanpa menuliskan ulang scriptnya (keuntungan yang sama juga ketika kita menggunakan external css). Untuk menghubungkan external script dengan berkas HTML, kita gunakan elemen <script> lalu tambahkan atribut src dengan nilai alamat berkas .js yang digunakan. Sama seperti Embedded Script, kita bisa tuliskan tag <script> tersebut di dalam elemen <head>. Namun, direkomendasikan untuk disimpan di dalam elemen <body> sebelum tag penutup </body>.
+    -->
+
+    <!-- Dasar Javascript
+      a. Statement merupakan sebuah perintah yang bertujuan untuk memberitahu apa yang harus dilakukan browser. Pada akhir kode terdapat tanda titik koma (;) yang digunakan untuk menandai akhir dari sebuah statement. Meskipun sebenarnya pada JavaScript kita dapat menghiraukan penulisan titik koma (;) pada akhir statement, tetapi dalam best practice nya kita biasakan akhiri statement dengan titik koma (;).
+
+      b. comment merupakan sebuah teks yang diabaikan (tidak dianggap ada) atau tidak akan dieksekusi. Dalam komentar ini kita bisa menuliskan teks untuk mengingatkan atau menjelaskan kode yang kita tuliskan.
+      Terdapat dua metode ketika memberikan komentar. Untuk memberikan komentar pada satu baris saja, kita bisa gunakan tanda dua buah garis miring (//) pada awal barisnya. Sedangkan untuk menggunakan komentar lebih dari satu baris (multiple lines comment) kita bisa gunakan tanda /* sebagai pembuka komentar dan tanda */ sebagai penutup komentar
+
+      c. Variabel, digunakan untuk menyimpan informasi atau nilai yang akan dikelola di dalam sebuah program. Untuk membuat variabel pada JavaScript kita gunakan keyword var. Kita bisa menggunakan apapun yang kita mau untuk menamai sebuah variabel, tetapi pastikan penamaannya masih masuk akal dengan konteksnya agar berikutnya kode mudah di-maintenance. Sebaiknya hindari penamaan variabel dengan istilah umum seperti “data”, Gunakanlah penamaan variabel yang dapat mendeskripsikan nilai dari variabel itu sendiri.
+      Aturan dalam penamaan variabel : 
+        - Harus dimulai dengan huruf atau underscore (_).
+        - Dapat terdiri dari huruf, angka, dan underscore (_) dengan berbagai kombinasi.
+        - Tidak dapat mengandung spasi (white space), jika penamaan variabel lebih dari dua kata maka tuliskan secara camelCase. Contoh firstName, lastName, catName, dll.
+        - Tidak dapat mengandung karakter spesial (! . , / \ + * = dll.)
+      selain var, menginisialisasikan variabel dapat menggunakan let dan const. dimana js melakukan improvisasi pada deklarasi variabel karena menggunakan ver terdapat beberapa hal yang kontroversial, salah satunya hoisting. hoisting memiliki arti "Mengangkat" variabel yang dideklarasikan menggunakan var ini dapat diberikan nilai terlebih dahulu sebelum dideklarasikan.
+        1. Let, digunakan untuk mengatasi masalah hoisting.
+        2. const, digunakan untuk mendeklarasikan sebuah variabel yang sifatnya immutable atau tidak perlu diubah nilainya. Jika kita menginisialisasi kembali nilai variabel yang menggunakan const, maka akan mendapati eror “TypeError: Assignment to constant variable.”
+      Dengan begitu sebaiknya kita gunakan let atau const ketika mendeklarasikan variabel daripada menggunakan var.
+
+      d. tipe data, Nilai yang kita tetapkan pada variabel pasti memiliki tipe data. Tipe data merupakan pengklasifikasian data berdasarkan jenis data tersebut. Pada JavaScript terdapat beberapa tipe data sebagai berikut:
+        1. undefined, Tipe data ini terbentuk ketika sebuah variabel tidak memiliki nilai, dalam arti lain ketika kita mendeklarasikan variabel tanpa menginisialisasikan nilainya, maka variabel tersebut menjadi undefined. Ketika kita memastikan tipe data dengan menggunakan fungsi typeof() maka menghasilkan output undefined.
+        Fungsi typeof() digunakan untuk memastikan tipe data pada variabel dengan mengembalikan tipe data tersebut dalam bentuk teks
+        2. Numbers, tipe data dari number adalah angka. Jika angka tersebut merupakan sebuah bilangan desimal, maka kita bisa gunakan tanda titik pada pecahan bilangannya. Pada tipe data number kita juga dapat melakukan perhitungan aritmatika seperti penambahan, pengurangan, perkalian, dll.
+          - (+) berfungsi untuk penambahan
+          - (-) berfungsi untuk pengurangan
+          - (/) berfungsi untuk pembagian
+          - (*) berfungsi untuk perkalian
+          - (%) berfungsi untuk sisa hasil bagi
+        Pada operator aritmatika juga terdapat operator increment (++) dan decrement (--). Operator increment dan decrement digunakan untuk menambahkan atau mengurangi nilai 1 pada nilai variabel yang ada sekarang.
+        Operator ini dapat dituliskan sebelum atau sesudah variabel, tetapi hal tersebut bukan berarti sama. Berikut ketentuannya:
+          - Jika dituliskan setelah variabel (x++), statement akan menghasilkan nilai variabel sebelum ditingkatkan nilainya.
+          - Jika dituliskan sebelum variabel (++x), statement akan menghasilkan nilai variabel setelah ditingkatkan nilainya.
+      
+      e. Strings, String ini dasarnya adalah sebuah teks. Pada JavaScript untuk menetapkan nilai string pada variabel, gunakan tanda single (‘) atau double quote (“) di antara teksnya. Apa pun yang berada di antara tanda double quote atau single quote merupakan sebuah string, baik itu angka, huruf maupun karakter spesial. Pada string juga kita dapat menggunakan operator plus (+). Operator tersebut pada string berfungsi untuk menggabungkan dua teks yang terpisah menjadi satu buah teks.
+
+      f. Boolean, hanya dapat memiliki dua nilai, yakni true atau false. Tipe data ini menjadi kunci utama dalam penentuan logika, kita akan memahaminya nanti ketika pembahasan if/else statement. Untuk menetapkan nilai boolean pada variabel kita bisa menggunakan keyword true atau false. Atau kita bisa gunakan operator komparasi seperti lebih dari (>) atau kurang dari (<).
+
+      g. null, Serupa dengan undefined, namun null perlu diinisialisasikan pada variabel. null biasa digunakan sebagai nilai sementara pada variabel, tapi sebenarnya nilai tersebut “tidak ada”. Terkadang kita perlu membuat sebuah variabel, namun kita belum memerlukan nilai apa apa dan tidak ingin terikat oleh tipe data apapun. Nah, daripada kita tidak menetapkan nilai apapun (variabel akan undefined) sebaiknya kita beri nilai null pada variabel tersebut, dan ubah nanti ketika kita membutuhkannya. Untuk menetapkan null pada variabel, kita dapat gunakan keyword null ketika variabel tersebut diinisialisasikan.
+      
+      Meskipun terdapat beberapa tipe data dalam JavaScript, tetapi variabel pada JavaScript memiliki sifat tipe data yang dinamis. Artinya, kita dapat memberikan tipe data yang berubah-ubah pada satu variabel yang sama. Contohnya:
+      1. let x; // x merupakan undefined 
+      2. x = 1 // sekarang x merupakan number
+      3. x = true // sekarang x merupakan boolean
+      4. x = "Harry" // sekarang x merupakan string
+    -->
+
+    <!-- Arrays dan objek
+      a. Arrays, merupakan tipe data yang dapat mengelompokkan lebih dari satu nilai dari tipe data lain dengan menempatkannya pada satu variabel. Nilai - nilai yang berada pada array disusun dan diakses secara indexing. Untuk mengakses nilai di dalam array kita gunakan tanda kurung siku [] yang di dalamnya berupa angka yang merupakan posisi nilai yang ingin diakses. nilai index array dimulai dari angka 0 jika kita mengakses nilai array lebih dari indexnya maka hasilnya akan undefined. index terakhir array selalu jumlah nilai array -1.
+
+      b. objek, Objek serupa dengan array yang dapat menampung banyak nilai dengan tipe data yang beragam. Untuk mengelola data menggunakan objek, bedanya objek diakses tidak melalui indexing,  melainkan menggunakan pendekatan key-value. Untuk mengakses nilainya kita gunakan key. Key juga biasa disebut dengan properti. Untuk menetapkan objek pada variabel gunakan tanda kurung kurawal { } dalam menginisialisasinya. Kemudian di dalamnya kita tetapkan key: value.
+
+      let object = {key1: "value1", key2: "value2", key3: "value3"}
+
+      - Dalam menentukan nama key, gunakanlah nama yang dapat mendeskripsikan dari value-nya. Pada value, kita dapat mengisikan nilai dengan tipe data apapun, termasuk array.
+      - Dalam menuliskan objek, baris baru tidaklah penting dan tidak akan berpengaruh apa pun. Sehingga lebih baik setiap kita menetapkan key-value buatlah baris baru untuk memisahkan antar nilainya, hal ini akan memudahkan kita dalam memahami struktur data yang berada pada objek.
+      - Kemudian untuk mengakses nilai dari properti objek kita dapat gunakan tanda titik diikuti dengan nama properti-nya.
+      untuk lebih lengkapnya mengenai array dan objek :
+      Array : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+      Objek : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object
+    -->
+
+    <!--  Operator Penugasan
+      Operator ini digunakan untuk memberikan nilai pada variabel. Pada dasarnya operator ini adalah tanda sama dengan (=), di mana tanda ini digunakan untuk menginisialisasi nilai pada variabel. Variabel yang akan diberikan nilai ditempatkan pada sebelah kiri dan nilainya ditempatkan pada sebelah kanan (nilai dapat berupa variabel lain atau nilai primitif, array, atau objek). Di antara keduanya terdapat operator assignment.
+
+      x = y; 
+
+      Contoh pada statement tersebut kita menginisialisasikan nilai y pada variabel x, sehingga nilai x sekarang memiliki nilai yang sama dengan y.
+      Ada beberapa assignment operator tambahan lain dalam menginisialisasikan nilai pada variabel, atau bisa kita sebut sebagai shortcut dalam menentukan nilai.
+
+      let x = 10;
+      let y = 5
+ 
+      x += y; // artinya -> x = x + y;
+      x -= y; // artinya -> x = x - y;
+      x *= y; // artinya -> x = x * y;
+      x /= y; // artinya -> x = x / y;
+      x %= y; // artinya -> x = x % y;
+    -->
+
+    <!-- Operator Komparasi
+      a. Operator (==) berfungsi untuk membandingkan kedua nilai apakah sama. (tidak identik)
+      b. Operator (!=) berfungsi untuk membandingkan kedua nilai apakah tidak sama. (tidak identik)
+      c. Operator (===) berfungsi untuk membandingkan kedua nilai apakah identik
+      d. Operator (!==) berfungsi untuk membandingkan kedua nilai apakah tidak identik
+      e. Operator (>) berfungsi untuk membadingkan dua nilai apakah nilai pertama lebih besar dari nilai kedua
+      f. Operator (>=) berfungsi untuk membadingkan dua nilai apakah nilai pertama lebih besar atau sama dengan dari nilai kedua
+      g. Operator (<) berfungsi untuk membadingkan dua nilai apakah nilai pertama lebih kecil dari nilai kedua
+      h. Operator (<=) berfungsi untuk membadingkan dua nilai apakah nilai pertama lebih kecil atau sama dengan dari nilai kedua
+      Ketika kita melakukan perbandingan antara dua nilai, JavaScript akan mengevaluasi kedua nilai tersebut dan akan mengembalikan boolean dengan nilai hasil perbandingan tersebut, baik false, atau true
+
+        1. perbedaan antara sama dan identik
+        Dalam operator komparasi di JavaScript, hal yang menjadi sedikit “tricky” adalah membedakan antara “sama” (==) dan “identik” (===). Kita sudah mengetahui bahwa setiap nilai pasti memiliki tipe data baik itu number, string atau boolean. Contohnya sebuah string “10” dan number 10 merupakan hal yang serupa, tetapi keduanya tidak benar-benar sama. Hal inilah yang membedakan antara sama dan identik pada JavaScript. Jika kita ingin membandingkan hanya dari kesamaan nilainya kita bisa gunakan == tapi jika kita ingin membandingkan dengan memperhatikan tipe datanya kita gunakan ===.
+        
+        2. Logical operators
+        Terdapat beberapa operator lain yang dapat kita gunakan untuk menetapkan logika yang lebih kompleks, yakni dengan logical operators. Dengan logical operator kita dapat menggunakan kombinasi dari dua nilai boolean atau bahkan lebih dalam menetapkan logika. Pada JavaScript terdapat tiga buah karakter khusus yang berfungsi sebagai logical operator, berikut macam-macam logical operator dan fungsinya:
+          a. operator (&&) = operator dan (and), logika akan menghasilkan true apabila semua kondisi terpenuhi (bernilai true)
+          b. operator (||) = operator atau (or), logika akan menghasilkan true apabila ada salah satu kondisi terpenuhi (bernilai true)
+          c. Operator (!) = operator tidak (not), digunakan untuk membalikan suatu kondisi
+        boolean merupakan salah satu kunci dari logika pemrograman, karena boolean dapat mengontrol aliran pada program.
+    -->
+
+    <!-- If/Else statement
+      Ketika mengembangkan sebuah program tentu terdapat alur atau flow proses ketika kode dijalankan. Kita dapat mengontrol alur program ketika suatu kondisi terjadi, misalkan jika nilai x > 5 maka program harus melakukan statement a. Jika tidak, program akan menjalankan statement b. Untuk melakukan hal tersebut, kita dapat menggunakan if/else statement.
+      
+      If/else statement dapat digambarkan seolah-olah kita memberikan pertanyaan benar atau salah pada JavaScript, lalu memberikan perintah sesuai jawaban dari pertanyaan tersebut.
+      
+      Contohnya, terdapat variabel x dengan nilai 50, kemudian kita bertanya “Hai JavaScript! Apakah x lebih dari 70?” jika kondisi tersebut benar, maka kita dapat memerintahkan JavaScript untuk menampilkan nilainya. Jika salah, kita perintahkan JavaScript untuk menampilkan teks “Nilai kurang dari 70”.
+
+      let x = 50;
+      
+      if(x > 70) {
+    console.log(x);
+  } else {
+    console.log("Nilai kurang dari 70");
+  }
+
+  /* output
+  Nilai kurang dari 70
+  */
+
+    Pada kode di atas, kita menggunakan kata kunci if untuk memberikan pertanyaan pada JavaScript. Pertanyaan tersebut berupa logical statement yang sudah kita pelajari pada materi sebelumnya. Logical statement pada if ditulis di dalam tanda kurung (parentheses). Jika logical statement tersebut menghasilkan true, maka JavaScript akan mengeksekusi kode yang berada di dalam block if. Jika logical statement menghasilkan nilai false, maka kode yang pada block else lah yang akan dieksekusi. Block else bersifat opsional untuk dituliskan, hal tersebut berarti kita tidak perlu menuliskannya jika tidak kita manfaatkan.
+    -->
+
+    <!-- Loop
+      a. For loop
+      struktuf for
+
+      for(let i = 0; i < 5; i++) {
+        console.log(i);
+      }
+
+      Yang pertama adalah for(), kita memanggil for statement di mana kita memerintahkan JavaScript seperti ini: “Hai JavaScript! Lakukan perulangan jika kondisi ini benar”, selanjutnya tentu kita membutuhkan sebuah kondisi untuk dievaluasi.
+      Mengapa kita memberikan nilai 0 pada variabel i? Karena ini merupakan sebuah habit dimana perhitungan perulangan dimulai dari 0, begitu juga dengan indexing pada array.
+
+      Lalu i < 5; merupakan sebuah kondisi dimana jika kondisinya terpenuhi proses looping akan dijalankan. Jadi jika kita memberikan kondisi seperti ini: i < 5; maka proses looping akan terjadi sebanyak 5 kali.
+
+      Dan terakhir i++; menunjukan perubahan nilai variabel i di setiap proses perulangan terjadi. Biasanya perubahan merupakan increment ataupun decrement dari variabel yang kita tetapkan sebelumnya (variabel i). Jika kita tidak menetapkan perubahan nilai, proses perulangan dapat berjalan selamanya! Karena kondisi akan terus terpenuhi.
+
+      Lalu { console.log(i); } merupakan statement yang akan dieksekusi pada setiap proses loop. Kita dapat menuliskan banyak statement di sini selama berada di dalam tanda { }. Pada kode tersebut kita memerintahkan JavaScript untuk menampilkan nilai i pada setiap proses perulangan. Sehingga output akan menghasilkan deretan angka dari 0 hingga 4.
+
+      Kita gunakan i < myArray.length sebagai batasan pada proses looping, sehingga proses looping tidak lebih dari panjang array. Kemudian untuk mengakses index array kita manfaatkan nilai variabel i, dimana variabel i ini terus bertambah nilainya pada tiap proses loop, sehingga kita bisa mengakses tiap index pada array secara otomatis.
+
+      b. for of loop
+      struktur for of
+
+      for(arrayItem of myArray) {
+        // do something
+      }
+
+      for of tidak membutuhkan banyak statement untuk melakukan proses looping pada array. Dengan for..of, nilai tiap array akan diinisialisasi pada variabel baru yang kita tentukan pada tiap proses looping-nya. Jumlah proses looping nya pun akan menyesuaikan dengan ukuran dari array. Sederhananya seperti kita melakukan perintah “Hei JavaScript! Lakukan perulangan pada myArray, akses tiap nilainya dan simpan pada variabel arrayItem”. Pada proses looping kita gunakan variabel arrayItem untuk mengakses tiap nilai dari item myArray.
+    -->
+
+    <!-- Function
+      console.log() (lebih tepatnya pada log()) merupakan sebuah function yang berfungsi untuk menampilkan data pada console browser.
+      Function atau fungsi merupakan potongan kecil kode yang tidak akan dieksekusi sebelum dipanggil. Contoh lain fungsi JavaScript yang sudah ada pada browser adalah alert(). Ia bertujuan untuk menampilkan pesan dalam bentuk pop up dialog. Fungsi tersebut sudah ada pada browser dan akan muncul hanya ketika kita menggunakan/memanggilnya dengan alert().
+
+      Atau dalam arti lain, kita dapat berfikir bahwa function merupakan sebuah variabel yang berisi block logika, dan block logika tersebut akan dieksekusi ketika variabelnya dipanggil.
+
+      Semua fungsi memiliki struktur yang sama. Nama fungsi selalu diikuti dengan tanda kurung (parentheses) tanpa spasi, lalu terdapat sepasang kurung kurawal yang berisi logika dari fungsi tersebut.
+
+      Terkadang di dalam tanda kurung kita membutuhkan sebuah informasi tambahan yang disebut dengan arguments. Argument merupakan data yang digunakan pada fungsi yang dapat mempengaruhi perilaku dari fungsinya tersebut. Contoh, fungsi alert() dapat menerima argument string yang digunakan untuk menampilkan teks pada dialog.
+
+      Berikut merupakan ilustrasi dari struktur fungsi.
+      multiply(a,b) { -- return a*b;} / multiply() {return 5*5;}
+
+      multiply = nama fungsi
+      (a, b) = argument tapi tidak semua fungsi membutuhkan argument
+      -- = kode yang akan dieksekusi
+
+      terdapat dua tipe fungsi pada JavaScript, yakni native function dan custom function.
+        a. Native function merupakan fungsi yang sudah terdapat pada JavaScript atau Browser sehingga kita tidak perlu membuat hanya tinggal menggunakan saja. Contohnya alert(), confirm(), Date(), parseInt() dll. Sebenarnya terdapat ratusan native function yang tersedia.
+
+        b. Custom function merupakan fungsi yang kita buat sendiri, tentu custom function dibuat menyesuaikan kebutuhan kita. Untuk membuat sebuah custom function, kita perlu menuliskan keyword function dilanjutkan dengan menuliskan seluruh struktur fungsinya.
+
+     Kita dapat membuat fungsi tersebut untuk menerima argumen dan memanfaatkan argumen untuk mengubah perilaku dari fungsinya.
+     Untuk menambahkan argument pada fungsi, tambahkan variabel di dalam tanda kurung fungsi namun variabel tersebut tidak memerlukan keyword var, let, ataupun const. Kita juga bisa menambahkan lebih dari satu argumen dengan memberikan tanda koma antar variabel argumennya.
+
+     Satu hal lagi, function dapat mengembalikan sebuah nilai. Hal ini benar-benar sangat berguna dan membuat kita lebih mudah. Dengan nilai kembalian, kita dapat membuat function yang berfungsi untuk melakukan perhitungan matematika dan hasilnya dapat langsung kita masukkan ke dalam sebuah variabel. Untuk membuat nilai kembalian dari fungsi gunakan keyword return diikuti dengan nilai yang akan dikembalikan. Nilai kembalian tidak hanya number, bisa saja berupa string, boolean, objek ataupun array. 
+     -->
+
+    <!-- Variabel scope
+      Ada satu hal lagi yang harus kita tahu mengenai dasar JavaScript, yakni scoping variable. Ada banyak keadaan di mana kita membutuhkan variabel untuk diakses di seluruh script yang kita buat. Tetapi ada juga keadaan di mana kita ingin variabel tersebut hanya dapat diakses pada cakupan fungsi dan fungsi turunannya saja.
+
+      Variabel yang dapat di akses dari seluruh script disebut dengan “globally scoped,” sementara variabel yang hanya dapat diakses hanya pada function tertentu disebut dengan “locally scoped.”
+
+      Variabel JavaScript menggunakan fungsi untuk mengelola cakupannya, Jika variabel didefinisikan di luar fungsi, maka variabel akan bersifat global. Jika variabel didefinisikan di dalam fungsi, maka variabel bersifat lokal dan cakupannya hanya pada fungsi tersebut atau turunannya.
+
+      Untuk lebih jelasnya, berikut variabel yang dapat diakses dalam sebuah fungsi:
+        a. Variabel argumen dari fungsinya.
+        b. Lokal variabel yang didefinisikan pada fungsinya.
+        c. Variabel dari induk fungsinya.
+        d. Global variabel.
+
+      Sebisa mungkin kita harus menghindari pembuatan variabel global, karena variabel global dapat diakses pada seluruh script yang kita tuliskan. Semakin banyak variabel global yang kita tuliskan, semakin tinggi kemungkinan variabel tabrakan (collision) terjadi.
+    -->
+
+    <!-- Mode strict pada js
+      1. apa itu mode strict
+      Mode Strict adalah mode yang memaksakan penulisan program JavaScript yang baik dan aman. Hal ini memastikan tidak terjadinya kegagalan dalam menjalankan kode akibat penulisan script yang buruk, dan juga mencegah timbulnya bug. 
+
+      Berikut beberapa hal yang tidak dapat dilakukan jika menggunakan mode Strict:
+        a. Menggunakan variabel sebelum mendeklarasikannya. 
+        b. Menghapus variabel, function dan argumen.
+        c. Menggunakan definisi object property yang berulang.
+        d. Menggunakan definisi parameter pada function yang berulang.
+        e. Menulis pada property jenis readonly.
+        f. Menggunakan angka dengan penulisan oktal.
+        g. Menulis pada property jenis get.
+        h. Menghapus undelete property seperti pada property jenis prototype.
+        i. Menggunakan string “eval” dan “argument” sebagai variabel.
+        j. Menggunakan statement jenis with.
+        k. Menggunakan future keyword reserve seperti implements, interface, package, private, protected, public, static, yield.
+      2. cara aktivasi mode strict
+      Jalankan mode Strict dengan cara menuliskan perintah “use strict” pada awal sebuah script atau function. Perintah ditulis dalam bentuk tulisan biasa dan bukan merupakan statemen. Jika perintah ditulis di awal sebuah script maka akan berlaku untuk secara global. Jika ditulis di dalam function maka tidak akan berlaku secara global.
+    -->
+
+    <!-- Browser object
+      Pada JavaScript, browser dikenal sebagai window object. Di dalam objek window itu sendiri terdapat banyak properties dan method yang bisa digunakan, salah satu yang sudah kita ketahui adalah alert().
+
+      Berikut beberapa properti dan method yang sering digunakan seperti:
+        1. history = sebagai navigasi (go back atau go forward)
+        2. location = mendapatkan URL yang terdapat pada address bar browser.
+        3. alert() = menampilkan dialog alert dengan pesan dan tombol "ok"
+        4. close() = menutup tab yang aktif
+        5. confirm() = Menampilkan dialog dengan pesan dan tombol “ok” dan “cancel”. Method ini akan mengembalikan nilai boolean sesuai response dari pengguna.
+        6. prompt() = Menampilkan dialog dengan pesan dan teks input. Method ini akan mengembalikan nilai string sesuai response dari pengguna.
+    -->
+
+    <!-- Manipulasi DOM
+      Document Object Model (DOM) memberikan kita jalan untuk mengakses dan memanipulasi konten pada dokumen. DOM merupakan application programming interface (API) untuk HTML, XML atau SVG. Dengan DOM berkas HTML dapat direpresentasikan dalam bentuk objek yang dapat diakses oleh JavaScript (sebenarnya tidak hanya oleh JavaScript. DOM juga dapat diakses oleh bahasa pemrograman lain). Melalui DOM inilah JavaScript dapat memanipulasi elemen beserta atributnya pada HTML.
+    -->
+
+    <!-- Mendapatkan Elemen
+      Untuk mengakses elemen melalui DOM, kita gunakan properti dari objek window yang dinamakan dengan document. Objek document merepresentasikan dokumen dari HTML atau keseluruhan halaman yang terlihat pada jendela browser. Meskipun nilai objek document terlihat hanya seperti struktur HTML saja, namun objek document memiliki beberapa standar properti dan method yang digunakan untuk mengakses koleksi elemen di dalamnya. beberapa method yang disediakan pada objek document:
+        a. method "getElemenById()" contoh document.getElemenById("display") = mengembalikan elemen yang memiliki nilai id "display"
+        b. method "getElemenByName()" contoh document.getElemenByName("button") = Mengembalikan banyak elemen (NodeList) yang memiliki attribute name dengan nilai “button”.
+        c. method "getElemenByClassName()" contoh document.getElemenByClassName("button")" = Mengembalikan kumpulan yang memiliki class "button" dalam bentuk HTMLCollection.
+        d. method "getElemenByTagName()" contoh document.getElemenByTagName("div") = Mengembalikan banyak <div> elemen berupa HTMLCollection
+        e. method "querySelector()" contoh document.querySelector(".button"); = Mengembalikan elemen pertama yang menerapkan class “button”.
+        . method "querySelectorAll()" contoh document.querySelectorAll(".button"); = Mengembalikan kumpulan Node beserta turunannya (NodeList) dengan class “button”.
+    -->
+
+    <!-- Memanipulasi Element
+      a. memanipulasi atribut, Untuk mengubah atau menambah nilai atribut pada elemen, kita gunakan setAttribute(). Method ini membutuhkan dua buah argumen string yang merupakan nama dan nilai dari atributnya. Selain mengatur nilai atribut elemen, kita juga dapat mengambil nilai dari atribut elemen yang sedang diterapkan dengan menggunakan method getAttribute(). Method tersebut membutuhkan satu buah argumen string yang merupakan nama atribut dan akan mengembalikan nilai dari atribut tersebut.
+    -->
+
+    <!-- Memanipulasi konten elemen
+      Dengan JavaScript juga kita dapat mengubah konten yang ada di dalam HTML. Konten pada elemen disimpan di dalam properti innerHTML (konten dalam bentuk HTML) atau innerText (konten dalam bentuk Teks). Hasilnya, dalam memanipulasi konten kita dapat melakukannya dengan mengubah nilai dari properti tersebut.
+      a. Kita dapat memberikan nilai HTML pada konten elemen dengan menggunakan properti innerHTML.
+      b. innerText, nilai apapun yang terdapat pada properti ini adalah merupakan sebuah teks. Sehingga walaupun kita menginisialisasi teks yang merupakan sebuah tag html, maka teks tersebut akan tampil apa adanya tanpa terformat sebagai HTML.
+    -->
+
+    <!-- Membuat dan menambahkan elemen baru
+      Dalam membuat elemen baru, DOM telah menyediakan method yang bernama createElement().
+    -->
+
+    <!-- Menambahkan aksi (event) pada element
+      Event bisa berupa interaksi dari pengguna seperti click, atau sekedar mengarahkan kursor pada elemen. Dengan menerapkan event handler, kita dapat menjalankan suatu fungsi tertentu ketika event terjadi pada elemen. Untuk menambahkan Event Handler pada elemen kita gunakan method, addEventListener() pada target element. Method ini membutuhkan setidaknya dua buah argument.
+
+      Yang pertama adalah sebuah string sebagai tipe event-nya. Ada banyak sekali tipe event yang dapat digunakan pada method addEventListener(), Anda bisa melihat secara lengkap pada tautan berikut: https://developer.mozilla.org/en-US/docs/Web/Events. Salah satu yang banyak digunakan adalah “click”. Event ini akan membaca kejadian dimana pengguna melakukan click pada element.
+
+      Kemudian yang kedua adalah sebuah fungsi yang akan dijalankan ketika event terjadi. Pada fungsi ini kita dapat memberikan sebuah argumen yang merupakan object yang berisikan informasi tentang action yang terjadi. Termasuk informasi mengenai target elemen event-nya (event.target). Argumen ini biasanya diberikan nama “event”.
+    -->
+  </body>
+</html>

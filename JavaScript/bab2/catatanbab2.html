@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Catatan Bab 2 Js</title>
+  </head>
+  <body>
+    <!-- Web Storage
+    Web storage adalah salah satu Web API yang dapat menyimpan data secara lokal pada sisi client. Berbeda dengan objek atau array, data yang disimpan pada objek atau array JavaScript bersifat sementara, dan akan hilang jika terjadi reload atau pergantian URL pada browser. Sedangkan data yang disimpan pada Web Storage akan bertahan lebih lama karena data akan disimpan pada storage browser.
+
+    Data yang disimpan web storage tersedia berdasarkan domain. Artinya, data pada suatu domain web hanya dapat diakses oleh domainnya itu sendiri. Web storage dapat menampung sebesar 10MB untuk satu domain.
+  -->
+
+    <!-- Type web storage
+    Sebelum menggunakan Web Storage baik sessionStorage atau localStorage, kita perlu memastikan browser support terhadap fitur tersebut, dengan cara:
+
+    if (typeof(Storage) !== 'undefined') {
+      // Browser mendukung sessionStorage/localStorage.
+    } else {
+      // Browser tidak mendukung sessionStorage/LocalStorage
+    }
+
+    Pada sessionStorage atau localStorage data yang disimpan adalah nilai primitif seperti number, boolean, atau string. Namun kita juga dapat menyimpan data berbentuk objek dengan mengubahnya dalam bentuk string, begitu pula sebaliknya ketika kita ingin menggunakan datanya kembali.
+
+    Untuk menyimpan dan mengakses data pada storage, metode yang digunakan adalah key-value. Di sini key menjadi sebuah kunci untuk mengakses data pada storage.
+
+    Data yang disimpan pada Web Storage dapat kita lihat menggunakan DevTools pada tab Application (Google Chrome) atau tab Storage (Mozilla Firefox).
+
+      1. Session storage, digunakan untuk menyimpan data sementara pada browser. Data akan hilang ketika browser atau tab browser ditutup. Untuk menggunakan Session Storage kita gunakan object sessionStorage, kemudian untuk menyimpan datanya gunakan method setItem(), method ini membutuhkan dua argumen yakni key dan nilai yang akan dimasukkan. Kemudian untuk mengakses data yang sudah dimasukkan kita gunakan method getItem() dan gunakan key sebagai argumen methodnya.
+
+      2. Local storage, Local Storage yang serupa dengan session storage, namun data yang disimpan tidak akan hilang bila browser atau tabs browser ditutup. Kita bisa menghapus data pada local storage dengan method removeItem(). Untuk penggunaan localStorage identik dengan sessionStorage, perbedaannya storage ini diakses melalui object localStorage. data yang disimpan pada localStorage akan bertahan walaupun jendela browser atau tab browser ditutup, untuk menghapus datanya bisa dengan tombol “Hapus Storage” dimana tombol tersebut akan memanggil method localStorage.removeItem().
+    -->
+  </body>
+</html>
